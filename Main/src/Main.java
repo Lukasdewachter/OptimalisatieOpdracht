@@ -13,9 +13,9 @@ public class Main {
         double weight_duration = (double)jo.get("weight_duration");
         long horizon = (long)jo.get("horizon");
         JSONArray ja = (JSONArray) jo.get("jobs");
-        Iterator itr = ja.iterator();
-        while(itr.hasNext()){
-            System.out.println(itr);
+        for(int i=0; i<ja.size() ; i++){
+            JSONObject temp = (JSONObject) ja.get(i);
+            int id = (int)temp.get("id");
         }
     }
 }
