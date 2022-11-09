@@ -3,6 +3,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
 
 /*
     - eerst een feasable oplossing vormen dan lokaal zoeken om betere oplossingen te zoeken
@@ -16,8 +17,9 @@ public class Main {
         String name = (String)jo.get("name");
         double weight_duration = (double)jo.get("weight_duration");
         long horizon = (long)jo.get("horizon");
+        System.out.println("Test: "+name+", duration "+ weight_duration+", horizon: "+horizon);
         JSONArray ja = (JSONArray) jo.get("jobs");
-        List<Job> jobs = new ArrayList<Job>();
+        List<Job> jobs = new ArrayList<>();
         for (Object o : ja) {
             JSONObject temp = (JSONObject) o;
             long id = (long) temp.get("id");
@@ -28,6 +30,9 @@ public class Main {
             double rejection_penalty = (double) temp.get("rejection_penalty");
             Job job = new Job(id, duration, release_date, due_date, earliness_penalty, rejection_penalty);
             jobs.add(job);
+        }
+        for(Job j : jobs){
+            j.print();
         }
     }
 }
