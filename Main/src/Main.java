@@ -31,8 +31,6 @@ public class Main {
             Job job = new Job(id, duration, release_date, due_date, earliness_penalty, rejection_penalty);
             jobs.add(job);
         }
-        for(Job j : jobs){
-            j.print();
-        }
+
     }
 }
