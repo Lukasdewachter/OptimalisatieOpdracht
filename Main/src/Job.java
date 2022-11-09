@@ -5,6 +5,7 @@ public class Job {
     private final long dueDate;
     private final double earlinessPenalty;
     private final double rejectionPenalty;
+    private long start=0, stop=0;
     public Job(long id, long duration, long releaseDate, long dueDate, double earlinessPenalty, double rejectionPenalty){
         this.id = id;
         this.duration = duration;
@@ -13,6 +14,22 @@ public class Job {
         this.earlinessPenalty = earlinessPenalty;
         this.rejectionPenalty = rejectionPenalty;
     }
+    public void setStart(long start) {
+        this.start = start;
+    }
+
+    public void setStop(long stop) {
+        this.stop = stop;
+    }
+
+    public long getStart() {
+        return start;
+    }
+
+    public long getStop() {
+        return stop;
+    }
+
     public long getDuration() {
         return duration;
     }
