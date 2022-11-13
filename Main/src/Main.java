@@ -20,7 +20,7 @@ public class Main {
         int horizon = object.getInt("horizon");
         System.out.println("Test: "+name+", duration "+ weight_duration+", horizon: "+horizon);
         JSONArray jobsArray = object.getJSONArray("jobs");
-        List<Job> jobs = new ArrayList<>();
+        ArrayList<Job> jobs = new ArrayList<>();
         for (int i = 0; i<jobsArray.length();i++) {
             JSONObject temp = jobsArray.getJSONObject(i);
             int id = temp.getInt("id");
@@ -40,8 +40,8 @@ public class Main {
             int end = temp.getInt("end");
             un.addUnavailable(start,end);
         }
-
-        int[][] setups = new int[jobs.size()][jobs.size()];
+        Setup setup = new Setup(jobs);
+        int[][] setups = setup.setup;
         JSONArray s = object.getJSONArray("setups");
         for(int i=0; i< jobsArray.length();i++){
             JSONArray s0 = s.getJSONArray(i);
