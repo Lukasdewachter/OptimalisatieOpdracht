@@ -14,6 +14,11 @@ public class Job {
         this.earlinessPenalty = earlinessPenalty;
         this.rejectionPenalty = rejectionPenalty;
     }
+
+    public long getId() {
+        return id;
+    }
+
     public void setStart(long start) {
         this.start = start;
     }
