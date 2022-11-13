@@ -32,16 +32,22 @@ public class Main {
             Job job = new Job(id, duration, release_date, due_date, earliness_penalty, rejection_penalty);
             jobs.add(job);
         }
-        JSONArray unavailability = (JSONArray) object.get("unavailability");
+        JSONArray unavailability = object.getJSONArray("unavailability");
         Unavailability un = new Unavailability(horizon);
-        for(int i=0; i<jobsArray.length();i++){
-            JSONObject temp = jobsArray.getJSONObject(i);
+        for(int i=0; i<unavailability.length();i++){
+            JSONObject temp = unavailability.getJSONObject(i);
             int start = temp.getInt("start");
             int end = temp.getInt("end");
             un.addUnavailable(start,end);
         }
-        int[][] setups = new int[jobs.size()][jobs.size()];
-        JSONArray s = (JSONArray) object.get("setups");
 
+        int[][] setups = new int[jobs.size()][jobs.size()];
+        JSONArray s = object.getJSONArray("setups");
+        for(int i=0; i< jobsArray.length();i++){
+            JSONArray s0 = s.getJSONArray(i);
+            for (int j=0; j< s0.length();j++){
+                setups[i][j] = (int) s.getJSONArray(i).get(j);
+            }
+        }
     }
 }
