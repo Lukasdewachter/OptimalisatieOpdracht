@@ -14,7 +14,7 @@ public class Solution {
 
     // Function to schedule the jobs take 2 arguments
     // arraylist and no of jobs to schedule
-    void printJobScheduling(ArrayList<Job> jobs, int t)
+    void printJobScheduling(ArrayList<Job> jobs)
     {
         // Length of array
         int n = jobs.size();
@@ -24,7 +24,7 @@ public class Solution {
 
 
         // To keep track of free time slots
-        boolean result[] = new boolean[t];
+        boolean result[] = new boolean[];
 
         // To store result (Sequence of jobs)
         char job[] = new char[t];
@@ -54,11 +54,11 @@ public class Solution {
         } else return false;
     }
     //Weighted schedule duration + earliness penalty + penalty of rejected jobs
-    int evaluate(LinkedList<Job> solution){
-        int sum=0;
+    double evaluate(LinkedList<Job> solution, LinkedList<Job> notScheduledJobs){
+        double sum =0;
 
-        for(int i=0; i< solution.size();i++){
-            //if(solution.contains())
+        for(int i=0; i< notScheduledJobs.size();i++){
+            sum+=notScheduledJobs.get(i).getRejectionPenalty();
         }
         return sum;
     }
