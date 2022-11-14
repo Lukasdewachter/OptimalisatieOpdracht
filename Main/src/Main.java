@@ -49,5 +49,6 @@ public class Main {
                 setups[i][j] = (int) s.getJSONArray(i).get(j);
             }
         }
+
     }
 }
