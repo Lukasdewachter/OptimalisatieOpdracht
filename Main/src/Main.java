@@ -16,9 +16,9 @@ public class Main {
         JSONTokener tokener = new JSONTokener(String.valueOf(obj));
         JSONObject object = new JSONObject(tokener);
         String name = object.getString("name");
-        double weight_duration = object.getDouble("weight_duration");
+        double weightDuration = object.getDouble("weight_duration");
         int horizon = object.getInt("horizon");
-        System.out.println("Test: "+name+", duration "+ weight_duration+", horizon: "+horizon);
+        System.out.println("Test: "+name+", duration "+ weightDuration+", horizon: "+horizon);
         JSONArray jobsArray = object.getJSONArray("jobs");
         ArrayList<Job> jobs = new ArrayList<>();
         for (int i = 0; i<jobsArray.length();i++) {
@@ -49,6 +49,8 @@ public class Main {
                 setups[i][j] = (int) s.getJSONArray(i).get(j);
             }
         }
-
+        Solution solution = new Solution(jobs, weightDuration);
+        double evaluation = 0;
+        evaluation = solution.evaluate();
     }
 }
