@@ -5,6 +5,7 @@ public class Job {
     private final int dueDate;
     private final float earlinessPenalty;
     private final float rejectionPenalty;
+
     private long start=0, stop=0;
     public Job(int id, int duration, int releaseDate, int dueDate, float earlinessPenalty, float rejectionPenalty){
         this.id = id;

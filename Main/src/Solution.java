@@ -2,13 +2,9 @@ import java.util.*;
 
 public class Solution {
     int numberOfJobs;
-    int Horizon;
     LinkedList<Job> solution = new LinkedList<>();
+    LinkedList<Job> notScheduledJobs = new LinkedList<>();
     ArrayList<Job> jobs= new ArrayList<>();
-    double cost;
-
-    // heuristic
-    LinkedList<Job> bestSolution = new LinkedList<>();
     double bestCost;
 
     Solution(ArrayList<Job> jobs){
@@ -51,6 +47,20 @@ public class Solution {
         for (char jb : job)
             System.out.print(jb + " ");
         System.out.println();
+    }
+    boolean isScheduled(Job job){
+        if (solution.contains(job)){
+            return true;
+        } else return false;
+    }
+    //Weighted schedule duration + earliness penalty + penalty of rejected jobs
+    int evaluate(LinkedList<Job> solution){
+        int sum=0;
+
+        for(int i=0; i< solution.size();i++){
+            //if(solution.contains())
+        }
+        return sum;
     }
 
 }
